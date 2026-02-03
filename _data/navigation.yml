@@ -1,15 +1,15 @@
 # main links
 main:
   - title: "Home"
-    url: /cv-knu/
+    url: /
   - title: "Members"
-    url: /cv-knu/members/
+    url: /members/
   - title: "Publications"
-    url: /cv-knu/publications/
+    url: /publications/
   - title: "News"
-    url: /cv-knu/news/
+    url: /news/
   - title: "Contact"
-    url: /cv-knu/contact/
+    url: /contact/
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
   # - title: "Sample Posts"
