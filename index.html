@@ -122,8 +122,12 @@ author_profile: false
 
 <!-- Recruiting Section -->
 <div class="recruiting-section">
-    <h2>We Are Hiring!</h2>
-    <div class="recruiting-content">
+    <div class="recruiting-header" onclick="toggleRecruiting()"
+        style="cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;">
+        <h2>We Are Hiring!</h2>
+        <span id="recruiting-icon" style="transition: transform 0.3s;">&#9660;</span>
+    </div>
+    <div id="recruiting-content" class="recruiting-content" style="display: none;">
         <p>
             We are looking for impressive and self-motivated students to join our lab. <br />
             If you are passionate about Computer Vision, Deep Learning, and AI, we want to hear from you.
@@ -133,6 +137,20 @@ author_profile: false
         </p>
     </div>
 </div>
+
+<script>
+    function toggleRecruiting() {
+        var content = document.getElementById("recruiting-content");
+        var icon = document.getElementById("recruiting-icon");
+        if (content.style.display === "none") {
+            content.style.display = "block";
+            icon.style.transform = "rotate(180deg)";
+        } else {
+            content.style.display = "none";
+            icon.style.transform = "rotate(0deg)";
+        }
+    }
+</script>
 
 <!-- News Section -->
 <div class="news-section">
