@@ -173,7 +173,7 @@ author_profile: false
                 <h3 class="news-title">
                     <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
                 </h3>
-                <span class="news-date">{{ post.date | date: "%B %d, %Y" }}</span>
+                <span class="news-date">{{ post.date | date: "%b, %Y" }}</span>
                 <p class="news-excerpt">{{ post.excerpt | strip_html | truncate: 80 }}</p>
             </div>
         </div>
