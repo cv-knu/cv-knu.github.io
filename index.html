@@ -118,14 +118,13 @@ author_profile: false
 <!-- Hero Banner -->
 <div class="hero-banner">
     <h1>Computer Vision Lab at KNU</h1>
-    <p>Pushing the boundaries of vision and learning</p>
 </div>
 
 <!-- News Section -->
 <div class="news-section">
     <h2>Latest News</h2>
     <div class="news-grid">
-        {% for post in site.posts limit:5 %}
+        {% for post in site.posts limit:4 %}
         <div class="news-card">
             <img src="{{ post.header.teaser | default: 'https://placehold.co/500x300?text=No+Image' }}"
                 alt="{{ post.title }}" class="news-thumbnail">
