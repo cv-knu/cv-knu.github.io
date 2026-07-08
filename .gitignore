@@ -30,3 +30,10 @@ codekit-config.json
 .sass-cache
 _asset_bundler_cache
 _site
+
+# Claude Code — local settings, guidance & memory (not needed on GitHub)
+.claude/
+CLAUDE.md
+
+# Local preview helper — machine-specific (hardcoded Ruby path)
+serve.ps1

@@ -1,0 +1,96 @@
+# =============================================================================
+# Publications shown on /publications/  (grouped by year, newest year first).
+#
+# To add a paper, copy one entry block below and fill it in. Fields:
+#   title    (required)
+#   authors  (required)  comma-separated. Names in _data/lab_members.yml are
+#                        automatically bolded. Mark equal contribution with *.
+#   venue    (required)  e.g. CVPR, NeurIPS, ICCV, TPAMI ...
+#                        Journals and conferences share this one list.
+#   type     (optional)  colored badge for journal papers. One of:
+#                        BKCS, Q1, Q2, Q3, Q4, KCI
+#                        Leave it off for conference papers (no badge).
+#   year     (required)  used for grouping and ordering.
+#   location (optional)  e.g. "Nashville, USA"
+#   links:   (optional)  any of paper / arxiv / code / project.
+#                        paper = DOI / journal page / PDF (use this for journals).
+#                        Omit the ones you don't have — only present links show.
+#
+# Within the same year, entries are shown top-to-bottom in file order,
+# so put the newest paper of a year first.
+# =============================================================================
+
+- title: "Locality-Aware Zero-Shot Human-Object Interaction Detection"
+  authors: "Sanghyun Kim, Deunsol Jung, Minsu Cho"
+  venue: "CVPR"
+  type: BKCS
+  year: 2025
+  location: "Nashville, USA"
+  links:
+    arxiv: https://arxiv.org/abs/2505.19503
+    code: https://github.com/OreoChocolate/LAIN
+    # project: https://...
+
+- title: "Burst Image Super-Resolution with Base Frame Selection"
+  authors: "Sanghyun Kim*, Min Jung Lee*, Woohyeok Kim, Deunsol Jung, Jaesung Rim, Sunghyun Cho, Minsu Cho"
+  venue: "NTIRE Workshop @ CVPR 2024"
+  # type:
+  year: 2024
+  location: "Seattle, USA"
+  links:
+    arxiv: https://arxiv.org/abs/2406.17869
+    project: https://postech-cvlab.github.io/Burst_FSN/
+
+- title: "Activity Grammars for Temporal Action Segmentation"
+  authors: "Dayoung Gong*, Joonseok Lee*, Deunsol Jung, Suha Kwak, Minsu Cho"
+  venue: "NeurIPS"
+  type: BKCS
+  year: 2023
+  location: "New Orleans, USA"
+  links:
+    arxiv: https://arxiv.org/abs/2312.04266
+    code: https://github.com/gongda0e/KARI
+    project: https://jsleeo424.github.io/KARI/
+
+- title: "Devil's on the Edges: Selective Quad Attention for Scene Graph Generation"
+  authors: "Deunsol Jung, Sanghyun Kim, Wonhwa Kim, Minsu Cho"
+  venue: "CVPR"
+  type: BKCS
+  year: 2023
+  location: "Vancouver, Canada"
+  links:
+    arxiv: https://arxiv.org/abs/2304.03495
+    code: https://github.com/hesedjds/SQUAT
+    project: https://cvlab.postech.ac.kr/research/SQUAT/
+
+- title: "Relational Context Learning for Human-Object Interaction Detection"
+  authors: "Sanghyun Kim, Deunsol Jung, Minsu Cho"
+  venue: "CVPR"
+  type: BKCS
+  year: 2023
+  location: "Vancouver, Canada"
+  links:
+    arxiv: https://arxiv.org/abs/2304.04997
+    code: https://github.com/OreoChocolate/MUREN
+    project: https://cvlab.postech.ac.kr/research/MUREN/
+
+- title: "Few-Shot Metric Learning: Online Adaptation of Embedding for Retrieval"
+  authors: "Deunsol Jung, Dahyun Kang, Suha Kwak, Minsu Cho"
+  venue: "ACCV"
+  type: BKCS
+  year: 2022
+  location: "Macau SAR, China"
+  links:
+    arxiv: https://arxiv.org/abs/2211.07116
+    code: https://github.com/hesedjds/FSML
+
+- title: "Attentive Semantic Alignment with Offset-Aware Correlation Kernels"
+  authors: "Paul Hongsuck Seo, Jongmin Lee, Deunsol Jung, Bohyung Han, Minsu Cho"
+  venue: "ECCV"
+  type: BKCS
+  year: 2018
+  location: "Munich, Germany"
+  links:
+    arxiv: https://arxiv.org/abs/1808.02128
+    code: https://github.com/bluedream1121/A2Net
+    project: https://cvlab.postech.ac.kr/research/A2Net/
