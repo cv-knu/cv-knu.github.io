@@ -27,6 +27,7 @@ author_profile: false
     }
 
     .pub-year {
+        grid-column: 1 / -1;
         font-size: 1.6em;
         font-weight: 700;
         margin: 1.1em 0 0.35em;
@@ -37,19 +38,21 @@ author_profile: false
     /* NOTE: selectors are scoped under `.pub-list` so they out-specify the
        theme's `.page__content p / a / h2` rules — otherwise the theme wins and
        font-size / margins here have no effect. */
-    .pub-list .pub-item {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 0.4em 1.5em;
-        padding: 0.5em 0;
-        border-bottom: 1px solid #f2f2f2;
+
+    /* Two-column grid: the right (links) column auto-sizes to the widest button
+       group across all rows, so the left text column is identical on every row
+       and the buttons never wrap. Cells stretch so their bottom borders align. */
+    .pub-list .pub-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: stretch;
     }
 
     .pub-list .pub-entry {
-        flex: 1 1 320px;
+        grid-column: 1;
         min-width: 0;
+        padding: 0.5em 1.5em 0.5em 0;
+        border-bottom: 1px solid #f2f2f2;
     }
 
     .pub-list .pub-title {
@@ -90,16 +93,15 @@ author_profile: false
     .pub-list .ptype-q4   { background: #C0692B; }
     .pub-list .ptype-kci  { background: #607D8B; }
 
-    /* Fixed-width right column (sized for the widest case: badge + 4 buttons)
-       so the left text column is the same width on every row and wraps
-       consistently. Bump this if a row's buttons ever overflow. */
     .pub-list .pub-links {
+        grid-column: 2;
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;          /* keep all buttons on one line */
         gap: 6px;
-        flex: 0 0 320px;
+        padding: 0.5em 0;
+        border-bottom: 1px solid #f2f2f2;
     }
 
     .pub-list .pub-links a {
@@ -119,22 +121,31 @@ author_profile: false
         border-color: #CC4125;
     }
 
-    /* On narrow screens drop the fixed right column: buttons wrap to their own
-       full-width line, left-aligned, so nothing overflows. */
+    /* On narrow screens collapse to one column: links drop below the text,
+       left-aligned, and may wrap so nothing overflows. */
     @media (max-width: 640px) {
+        .pub-list .pub-grid {
+            grid-template-columns: 1fr;
+        }
+        .pub-list .pub-entry {
+            padding: 0.5em 0 0;
+            border-bottom: 0;
+        }
         .pub-list .pub-links {
-            flex: 1 1 100%;
+            grid-column: 1;
             justify-content: flex-start;
+            flex-wrap: wrap;
+            padding: 0.15em 0 0.5em;
         }
     }
 </style>
 
 <div class="pub-list">
+    <div class="pub-grid">
     {% assign groups = site.data.publications | group_by: "year" | sort: "name" | reverse %}
     {% for group in groups %}
-    <h2 class="pub-year">{{ group.name }}</h2>
-    {% for pub in group.items %}
-    <div class="pub-item">
+        <h2 class="pub-year">{{ group.name }}</h2>
+        {% for pub in group.items %}
         <div class="pub-entry">
             <p class="pub-title">{{ pub.title }}</p>
             {%- assign authors = pub.authors -%}
@@ -144,7 +155,6 @@ author_profile: false
             {%- endfor -%}
             <p class="pub-meta">{{ authors }}, {{ pub.venue }}{% if pub.location %}, {{ pub.location }}{% endif %}, {{ pub.year }}</p>
         </div>
-        {% if pub.type or pub.links %}
         <div class="pub-links">
             {% if pub.type %}<span class="ptype ptype-{{ pub.type | slugify }}">{{ pub.type }}</span>{% endif %}
             {% if pub.links.paper %}<a href="{{ pub.links.paper }}" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> Paper</a>{% endif %}
@@ -152,8 +162,7 @@ author_profile: false
             {% if pub.links.code %}<a href="{{ pub.links.code }}" target="_blank" rel="noopener"><i class="fab fa-github"></i> Code</a>{% endif %}
             {% if pub.links.project %}<a href="{{ pub.links.project }}" target="_blank" rel="noopener"><i class="fas fa-globe"></i> Project</a>{% endif %}
         </div>
-        {% endif %}
+        {% endfor %}
+    {% endfor %}
     </div>
-    {% endfor %}
-    {% endfor %}
 </div>
