@@ -1,0 +1,177 @@
+---
+title: "Members"
+layout: single
+permalink: /members/
+author_profile: false
+---
+
+<style>
+    .member-list {
+        max-width: 1100px;
+        margin-inline: 0;
+    }
+
+    /* Match the Publications page: use the full content width (drop the theme's
+       reserved right-sidebar gutter) and tighten the masthead-to-title gap. */
+    @media (min-width: 1024px) {
+        #main .page {
+            width: 100%;
+            padding-inline-end: 0;
+        }
+    }
+
+    #main .page__inner-wrap {
+        margin-top: 1.2em;
+    }
+
+    .member-section {
+        font-size: 1.6em;
+        font-weight: 700;
+        margin: 1.1em 0 0.5em;
+        padding-bottom: 0.2em;
+        border-bottom: 2px solid #eee;
+    }
+
+    /* Responsive grid of member cards (scoped under `.member-list` so it
+       out-specifies the theme's `.page__content` rules). */
+    .member-list .member-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1.6em 1.2em;
+    }
+
+    /* Vertical card: photo on top, info stacked below, centered. */
+    .member-list .member-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0.5em 0;
+    }
+
+    .member-list .member-photo {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        background: #f0f0f0;
+        margin-bottom: 0.25em;
+    }
+
+    .member-list .member-photo--empty {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #bbb;
+        font-size: 3.2em;
+    }
+
+    .member-list .member-info {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .member-list .member-name {
+        font-size: 0.95em;
+        font-weight: 700;
+        line-height: 1.2;
+    }
+
+    .member-list .member-role {
+        font-size: 0.72em;
+        color: #CC4125;
+        margin-top: 2px;
+    }
+
+    .member-list .member-research {
+        font-size: 0.72em;
+        color: #555;
+        line-height: 1.3;
+        margin-top: 3px;
+    }
+
+    .member-list .member-email {
+        font-size: 0.7em;
+        color: #777;
+        margin-top: 3px;
+        overflow-wrap: anywhere;
+    }
+
+    /* The "@knu.ac.kr" domain is appended via CSS (not present in the HTML
+       source), so email harvesters only see the id. Store just the username
+       in members.yml. */
+    .member-list .member-email .email-id::after {
+        content: "@knu.ac.kr";
+    }
+
+    .member-list .member-links {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 8px;
+    }
+
+    .member-list .member-links a {
+        color: #888;
+        font-size: 1.05em;
+        text-decoration: none;
+        transition: color 0.15s;
+    }
+
+    .member-list .member-links a:hover {
+        color: #CC4125;
+    }
+
+    .member-list .member-empty {
+        color: #aaa;
+        font-size: 0.85em;
+        font-style: italic;
+        margin: 0.2em 0 0.6em;
+    }
+
+    @media (max-width: 640px) {
+        .member-list .member-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<div class="member-list">
+    {% assign sections = "faculty|Faculty,graduate_students|Graduate Students,undergraduate_interns|Undergraduate Intern" | split: "," %}
+    {% for section in sections %}
+        {% assign parts = section | split: "|" %}
+        {% assign key = parts[0] %}
+        {% assign title = parts[1] %}
+        {% assign people = site.data.members[key] %}
+        <h2 class="member-section">{{ title }}</h2>
+        {% if people and people != empty %}
+        <div class="member-grid">
+            {% for p in people %}
+            <div class="member-card">
+                {% if p.photo %}
+                <img class="member-photo" src="{{ p.photo }}" alt="{{ p.name }}">
+                {% else %}
+                <span class="member-photo member-photo--empty"><i class="fas fa-user"></i></span>
+                {% endif %}
+                <div class="member-info">
+                    <div class="member-name">{{ p.name }}</div>
+                    {% if p.role %}<div class="member-role">{{ p.role }}</div>{% endif %}
+                    {% if p.research and key != "faculty" %}<div class="member-research">{{ p.research }}</div>{% endif %}
+                    {% if p.email %}<div class="member-email"><i class="fas fa-envelope"></i> <span class="email-id">{{ p.email }}</span></div>{% endif %}
+                    {% if p.links %}
+                    <div class="member-links">
+                        {% if p.links.homepage %}<a href="{{ p.links.homepage }}" target="_blank" rel="noopener" title="Homepage"><i class="fas fa-home"></i></a>{% endif %}
+                        {% if p.links.scholar %}<a href="{{ p.links.scholar }}" target="_blank" rel="noopener" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>{% endif %}
+                        {% if p.links.github %}<a href="{{ p.links.github }}" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>{% endif %}
+                        {% if p.links.linkedin %}<a href="{{ p.links.linkedin }}" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>{% endif %}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p class="member-empty">To be added.</p>
+        {% endif %}
+    {% endfor %}
+</div>

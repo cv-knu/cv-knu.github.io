@@ -1,0 +1,62 @@
+# =============================================================================
+# Members shown on /members/, grouped by section.
+# Sections rendered (in order) are defined in _pages/members.html:
+#   faculty -> graduate_students -> undergraduate_interns
+# (Post-Doc / Alumni can be added later by adding a key here and one entry to
+#  the `sections` list in members.html.)
+#
+# Each person:
+#   name      (required)
+#   role      (optional)  position/title, e.g. "Assistant Professor", "Ph.D. Student"
+#   research  (optional)  short, comma-separated research areas
+#   email     (optional)  username/id ONLY — the "@knu.ac.kr" domain is appended
+#                         by CSS (see members.html) so email harvesters can't
+#                         scrape the full address. e.g. email: gildong
+#   photo     (optional)  path under /assets/images/members/, e.g.
+#                         photo: /assets/images/members/gildong.jpg
+#                         (falls back to a placeholder icon if omitted; use a
+#                          square image — it's cropped to a circle)
+#   links:    (optional)  any of homepage / scholar / github / linkedin
+#                         omit the ones a person doesn't have
+#
+# To add a person: copy a template block below, remove the leading "# ", and
+# fill it in. Indentation matters (2 spaces).
+# =============================================================================
+
+faculty:
+  - name: Deunsol Jung
+    role: Assistant Professor
+    research: " "
+    email: deunsol.jung
+    photo: /assets/images/members/deunsol-jung.jpg
+    links: 
+      homepage: https://hesedjds.github.io
+      scholar: https://scholar.google.com/citations?user=T5B5N7cAAAAJ&hl=ko
+      github: https://github.com/hesedjds
+      linkedin: https://www.linkedin.com/in/deunsol-jung-27b737146/ 
+    # photo: /assets/images/members/deunsol-jung.jpg
+    # links:
+    #   homepage: https://...
+    #   scholar: https://scholar.google.com/citations?user=...
+    #   github: https://github.com/...
+    #   linkedin: https://www.linkedin.com/in/...
+
+graduate_students:
+  # - name: Hong Gildong
+  #   role: "Ph.D. Student"          # or "M.S. Student"
+  #   research: "Scene graph generation, HOI detection"
+  #   email: gildong                 # id only (shows as gildong@knu.ac.kr)
+  #   photo: /assets/images/members/gildong.jpg
+  #   links:
+  #     homepage: https://...
+  #     scholar: https://...
+  #     github: https://...
+  #     linkedin: https://...
+
+undergraduate_interns:
+  # - name: Kim Cheolsu
+  #   research: "Computer vision"
+  #   email: cheolsu
+  #   photo: /assets/images/members/cheolsu.jpg
+  #   links:
+  #     github: https://...
