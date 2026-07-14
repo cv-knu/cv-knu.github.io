@@ -1,0 +1,16 @@
+# Contact details shown on /contact/.
+#   address : write it on ONE line — it shows as one line (wraps only if the
+#             line is genuinely too long for the space). If you WANT a forced
+#             break, switch to a "|" block and put each line indented below.
+#   email   : id ONLY (the "@knu.ac.kr" domain is appended by CSS). Off by default.
+#   Delete any line to hide that row.
+
+address: |
+  Computer Vision Lab., IT5-219
+  Kyungpook National University (KNU), 80 Daehak-ro, Buk-gu, Daegu 41566, Korea
+phone: "(+82) 53-850-7285"
+# email: deunsol.jung                # uncomment to also show an Email row
+github: https://github.com/cv-knu
+
+# Google Maps embed — searched as-is; edit to move the pin.
+map_query: "경북대학교 IT대학 5호관"
