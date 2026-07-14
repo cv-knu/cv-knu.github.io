@@ -2,4 +2,60 @@
 
 <!-- insert favicons. use https://realfavicongenerator.net/ -->
 
+<style>
+    /* Single-layout pages: drop the theme's reserved right-sidebar gutter. */
+    @media (min-width: 1024px) {
+        #main .page {
+            width: 100%;
+            padding-inline-end: 0;
+        }
+    }
+
+    /* Blog posts only: constrain to ~the News board width, centered
+       (custom pages set their own widths and are unaffected). */
+    .page--post {
+        float: none;
+        max-width: 1000px;
+        margin-inline: auto;
+    }
+
+    .page--post .page__inner-wrap {
+        float: none;
+    }
+
+    /* Blog post body: slightly smaller text and a touch more spacing. */
+    .page--post .page__content {
+        font-size: 0.95em;
+    }
+
+    .page--post .page__content p {
+        margin-bottom: 0.8em;
+    }
+
+    /* Registered teaser image, centered at the end of the post. */
+    .post-teaser {
+        text-align: center;
+        margin-top: 1.8em;
+    }
+
+    .post-teaser img {
+        max-width: 100%;
+        max-height: 380px;
+        border-radius: 6px;
+    }
+
+    /* Post tags / categories: keep the "Tags:/Categories:" labels at the normal
+       meta size (same as "Updated"); only the chips stay small and compact. */
+    .page__taxonomy-item {
+        font-size: 0.75em;
+        padding: 2px 8px;
+        margin-bottom: 5px;
+    }
+
+    /* Previous / Next pager buttons: shorter (less vertical padding). */
+    .pagination--pager {
+        padding: 0.45em 2em;
+    }
+</style>
+
 <!-- end custom head snippets -->
