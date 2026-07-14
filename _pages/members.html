@@ -137,7 +137,9 @@ author_profile: false
 </style>
 
 <div class="member-list">
-    {% assign sections = "faculty|Faculty,graduate_students|Graduate Students,undergraduate_interns|Undergraduate Intern" | split: "," %}
+    {% comment %} To re-add the interns section later, append
+       ",undergraduate_interns|Undergraduate Intern" to the string below. {% endcomment %}
+    {% assign sections = "faculty|Faculty,graduate_students|Graduate Students" | split: "," %}
     {% for section in sections %}
         {% assign parts = section | split: "|" %}
         {% assign key = parts[0] %}
