@@ -25,11 +25,32 @@ author_profile: false
     }
 
     .member-section {
+        position: relative;
         font-size: 1.6em;
         font-weight: 700;
         margin: 1.1em 0 0.5em;
         padding-bottom: 0.2em;
-        border-bottom: 2px solid #eee;
+    }
+
+    .member-section::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 2px;
+        background: #eee;
+    }
+
+    .member-section::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        z-index: 1;
+        width: 44px;
+        height: 2px;
+        background: #cc4125;
     }
 
     /* Responsive grid of member cards (scoped under `.member-list` so it
@@ -56,6 +77,7 @@ author_profile: false
         object-fit: cover;
         background: #f0f0f0;
         margin-bottom: 0.25em;
+        transition: box-shadow 0.2s ease;
     }
 
     .member-list .member-photo--empty {
@@ -75,6 +97,16 @@ author_profile: false
         font-size: 0.95em;
         font-weight: 700;
         line-height: 1.2;
+        transition: color 0.15s ease;
+    }
+
+    /* Card hover: soft brand ring on the photo + name turns brand red. */
+    .member-list .member-card:hover .member-photo {
+        box-shadow: 0 0 0 4px rgba(204, 65, 37, 0.22);
+    }
+
+    .member-list .member-card:hover .member-name {
+        color: #cc4125;
     }
 
     .member-list .member-role {

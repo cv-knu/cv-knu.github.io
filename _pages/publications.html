@@ -28,11 +28,32 @@ author_profile: false
 
     .pub-year {
         grid-column: 1 / -1;
+        position: relative;
         font-size: 1.6em;
         font-weight: 700;
         margin: 1.1em 0 0.35em;
         padding-bottom: 0.2em;
-        border-bottom: 2px solid #eee;
+    }
+
+    .pub-year::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 2px;
+        background: #eee;
+    }
+
+    .pub-year::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        z-index: 1;
+        width: 44px;
+        height: 2px;
+        background: #cc4125;
     }
 
     /* NOTE: selectors are scoped under `.pub-list` so they out-specify the

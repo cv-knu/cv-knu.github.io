@@ -1,6 +1,8 @@
 <!-- start custom head snippets -->
 
 <!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="icon" type="image/png" href="{{ '/assets/images/favicon.png' | relative_url }}">
+<link rel="shortcut icon" href="{{ '/assets/images/favicon.ico' | relative_url }}">
 
 <style>
     /* Single-layout pages: drop the theme's reserved right-sidebar gutter. */
@@ -55,6 +57,48 @@
     /* Previous / Next pager buttons: shorter (less vertical padding). */
     .pagination--pager {
         padding: 0.45em 2em;
+    }
+
+    /* Masthead wordmark: heavier weight, slight tracking, brand-red accent. */
+    .site-title {
+        font-weight: 800;
+        letter-spacing: 0.3px;
+    }
+
+    .site-title .wm-accent {
+        color: #cc4125;
+    }
+
+    /* Masthead nav: smooth hover + a red underline that slides in on hover.
+       (Theme sets `transition: none` on nav links, so re-enable it here.) */
+    .visible-links a {
+        position: relative;
+        font-weight: 600;
+        font-size: 0.88em;
+        letter-spacing: 0.02em;
+        transition: color 0.15s ease;
+    }
+
+    .visible-links a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -2px;
+        height: 2px;
+        background: #cc4125;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.2s ease;
+    }
+
+    .visible-links a:hover::after {
+        transform: scaleX(1);
+    }
+
+    /* In-content links: smooth color transition on hover. */
+    .page__content a {
+        transition: color 0.15s ease;
     }
 </style>
 

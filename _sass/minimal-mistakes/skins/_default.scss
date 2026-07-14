@@ -1,5 +1,15 @@
 /* ==========================================================================
-   Default skin
-   ========================================================================== */
+   Default skin — customized with the CVLab @ KNU brand accent
+   ==========================================================================
 
-// Intentionally left blank
+   These variables are imported before minimal-mistakes/_variables.scss, so
+   (with !default) they win over the theme defaults and recolor links,
+   buttons, focus states, etc. onto the lab's red. */
+
+/* Brand accent (#CC4125) */
+$primary-color: #cc4125 !default;
+$link-color: #cc4125 !default;
+
+/* Keep the top navigation a neutral dark, with the brand red on hover. */
+$masthead-link-color: #494e52 !default;
+$masthead-link-color-hover: #cc4125 !default;
